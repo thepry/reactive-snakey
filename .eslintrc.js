@@ -97,7 +97,7 @@ module.exports = {
         "new-cap": "error",
         "new-parens": "error",
         "newline-after-var": [
-            "error",
+            "off",
             "never"
         ],
         "newline-before-return": "error",
@@ -132,7 +132,7 @@ module.exports = {
         "no-lone-blocks": "error",
         "no-lonely-if": "error",
         "no-loop-func": "error",
-        "no-magic-numbers": "error",
+        "no-magic-numbers": "off",
         "no-mixed-operators": "error",
         "no-mixed-requires": "error",
         "no-multi-spaces": "error",
@@ -198,7 +198,7 @@ module.exports = {
             "error",
             "always"
         ],
-        "object-property-newline": "error",
+        "object-property-newline": "off",
         "object-shorthand": "error",
         "one-var": "off",
         "one-var-declaration-per-line": "error",
@@ -213,14 +213,14 @@ module.exports = {
         "prefer-rest-params": "error",
         "prefer-spread": "error",
         "prefer-template": "error",
-        "quote-props": "error",
+        "quote-props": "off",
         "quotes": [
             "error",
             "single"
         ],
         "radix": "error",
         "require-await": "error",
-        "require-jsdoc": "error",
+        "require-jsdoc": "off",
         "rest-spread-spacing": "error",
         "semi": "off",
         "semi-spacing": "error",
@@ -244,7 +244,7 @@ module.exports = {
         ],
         "strict": "error",
         "symbol-description": "error",
-        "template-curly-spacing": "error",
+        "template-curly-spacing": "off",
         "unicode-bom": [
             "error",
             "never"

@@ -1,6 +1,13 @@
+const defaultRow = 2;
+const defaultCell = 1;
+
 export default class Snake {
   constructor() {
-    this.body = [[2,1], [2,2], [2,3]]
+    this.body = [
+        [defaultRow, defaultCell],
+        [defaultRow, defaultCell + 1],
+        [defaultRow, defaultCell + 2]
+      ]
   }
 
   head() {
@@ -21,11 +28,12 @@ export default class Snake {
   }
 
   onCell(rowId, cellId, body = this.body) {
-    return Boolean(body.find((elem) => elem[0] === rowId && elem[1] === cellId))
+    return Boolean(body.find((elem) => { return elem[0] === rowId && elem[1] === cellId }))
   }
 
   hitItself() {
-    const head = this.head()
+    const head = this.head();
+
     return this.onCell(head[0], head[1], this.body.slice(1))
   }
 }

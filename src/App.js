@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Field from './components/Field'
 import Game from './models/Game'
 
-const game = new Game;
+const game = new Game();
+const keyLeft = 37;
+const keyUp = 38;
+const keyRight = 39;
+const keyDown = 40;
 
 class App extends Component {
   constructor(props) {
@@ -27,25 +30,24 @@ class App extends Component {
   }
 }
 
-const keyDownTextField = (e) => {
-  switch(e.keyCode) {
-    case 37:
-      game.setDirection("left");
+const keyDownTextField = (event) => {
+  switch (event.keyCode) {
+    case keyLeft:
+      game.setDirection('left');
       break;
-    case 38:
-      game.setDirection("up");
+    case keyUp:
+      game.setDirection('up');
       break;
-    case 39:
-      game.setDirection("right");
+    case keyRight:
+      game.setDirection('right');
       break;
-    case 40:
-      game.setDirection("down");
+    case keyDown:
+      game.setDirection('down');
+      break;
+    default:
       break;
   }
 }
-
-document.addEventListener("keydown", keyDownTextField, false);
+document.addEventListener('keydown', keyDownTextField, false);
 
 export default App;
-
-
