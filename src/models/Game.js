@@ -25,6 +25,17 @@ export default class Game {
     this.move();
   }
 
+  move() {
+    this.direction = this.newDirection;
+    const row = this.newHeadRow()
+    const cell = this.newHeadCell()
+
+    this.snake.move(row, cell);
+    this._generateApple();
+    if (this._checkAppleTail()) { this.growSnake() }
+    if (this.snake.hitItself()) { this.reset() }
+  }
+
   resetInterval() {
     clearInterval(this.interval)
     this.interval = setInterval(this.moveCallback, this.intervalTime)
@@ -46,26 +57,14 @@ export default class Game {
       });
   }
 
-  move() {
-    this.direction = this.newDirection;
-    const keepTail = this._checkAppleTail()
-    const row = this.moveRow()
-    const cell = this.moveCell()
-
-    this.snake.move(row, cell);
-    if (keepTail) { this.growSnake() }
-    this._generateApple();
-    if (this.snake.hitItself()) { this.reset() }
-  }
-
-  moveRow() {
+  newHeadRow() {
     const snakeHead = this.snake.head();
     const row = snakeHead[0] + this._verticalChange();
 
     return this._correctCoordinate(row);
   }
 
-  moveCell() {
+  newHeadCell() {
     const snakeHead = this.snake.head();
     const cell = snakeHead[1] + this._horizontalChange();
 
